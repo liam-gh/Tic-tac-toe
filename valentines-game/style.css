@@ -1,0 +1,165 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Bonheur+Royale&display=swap');
+
+body {
+    font-family: 'Permanent Marker', cursive;
+    background: #fdf2e9;
+    color: #8B0000;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+header {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+header h1 {
+    font-size: 60px;
+    font-weight: bold;
+    color: #8B0000;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+}
+
+#forMillie {
+    font-family: 'Bonheur Royale', cursive;
+    font-size: 48px;
+    font-weight: bold;
+    color: #8B0000;
+    text-shadow: 2px 2px 5px rgba(255, 255, 255, 0.8);
+    margin-bottom: 20px;
+}
+
+#gameMessage {
+    font-size: 24px;
+    color: #8B0000;
+    font-weight: bold;
+    position: relative;
+    margin-top: -20px;
+}
+
+.game-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.photo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    justify-content: space-between;
+    height: 300px;
+}
+
+.photo {
+    width: 140px;
+    height: 140px;
+    border-radius: 10%;
+    border: 4px solid #8B0000; 
+    box-shadow: 0px 0px 10px rgba(255, 255, 255, 0.8);
+}
+
+.board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 10px;
+}
+
+.cell {
+    width: 100px;
+    height: 100px;
+    background: #8B0000;
+    font-size: 50px;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    border: 4px solid #8B0000; 
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cell:hover {
+    background-color: #c60c0c;
+}
+
+.cell.taken {
+    background-color: white;
+    color: #8B0000;
+    cursor: not-allowed;
+}
+
+#resetButton {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #8B0000;
+    border: none;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: 'Permanent Marker', cursive;
+    box-shadow: 0px 0px 15px rgba(255, 255, 255, 0.8);
+    color: white;
+    transition: background-color 0.3s ease;
+}
+
+#resetButton:hover {
+    background-color: #c60c0c;
+}
+
+@keyframes heartAnimation {
+    0% {
+        transform: translateY(0) scale(0.5);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) scale(1.5);
+        opacity: 0;
+    }
+}
+
+.falling-heart {
+    position: absolute;
+    top: -50px;
+    left: calc(100% * var(--random-x));
+    font-size: 30px;
+    color: #ff1493;
+    animation: heartAnimation 2s ease-in forwards infinite;
+}
+
+@media (max-width: 600px) {
+    .game-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .photo {
+        width: 120px;
+        height: 120px;
+    }
+
+    .board {
+        grid-template-columns: repeat(3, 80px);
+        grid-template-rows: repeat(3, 80px);
+    }
+
+    .cell {
+        width: 80px;
+        height: 80px;
+        font-size: 28px;
+    }
+}
+
